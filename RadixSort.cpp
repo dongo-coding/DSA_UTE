@@ -8,7 +8,6 @@ void countSort(int a[], int n, int exp) {
     for (int i = 0; i < n; i++)
         count[(a[i] / exp) % 10]++;
 
-    // Chuyển sang vị trí tích lũy
     for (int i = 1; i < 10; i++)
         count[i] += count[i - 1];
 
