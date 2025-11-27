@@ -1,31 +1,52 @@
+import java.util.Scanner;
+
 class Node {
     int data;
     Node next;
 
-    
-    Node(int new_data) {
-        this.data = new_data;
-        this.next = null;
+Node (int x){
+    this.data = x;
+    this.next=null;
     }
 }
 
 public class Main {
-    public static void main(String[] args) {
-      
-        Node head = new Node(10);
+    static Node createNode(int x){
+        return new Node(x);
+    }
 
-       
-        head.next = new Node(20);
-
-      
-        head.next.next = new Node(30);
-
-      
-        head.next.next.next = new Node(40);
-
-        while (head != null) {
-            System.out.print(head.data + " ");
-            head = head.next;
+    static void printList(Node k){
+        Node p=k;
+        while(p!=null){
+            System.out.print(p.data+" ");
+            p=p.next;
         }
+    }
+
+    static Node addElement(Node p,int x){
+        Node temp = createNode(x);
+        p.next = temp;
+        return temp;
+    }
+
+public static void main (String[] args){
+    Scanner sc = new Scanner(System.in);
+
+    int n,x;
+
+    n=sc.nextInt();
+    x=sc.nextInt();
+
+    Node k = createNode(x);
+
+    Node p=k;
+
+    for(int i=1;i<n;i++){
+        x=sc.nextInt();
+        p=addElement(p,x);
+    }
+
+    printList(k);
+    sc.close();
     }
 }
